@@ -1,0 +1,42 @@
+<div class="table-container">
+    <h1 class="text-4xl font-extrabold text-grey-900">Points Table</h1>
+    <div class="overflow-x-auto">
+
+        <table class="text-center mt-4 min-w-full bg-white border border-gray-300">
+        
+        <thead>
+        
+        <tr>
+            @for (heading of tableHeading; track $index) {
+                <th class="py-2 px-4 border-b bg-blue-500">{{heading}}</th>
+            }
+        
+    
+        </tr>
+        
+        </thead>
+        
+        <tbody>
+            @for (team of pointTable ; track $index) {
+                <tr class="hover:bg-blue-100 hover:scale-110 transition-all cursor-pointer"
+                    [ngClass]="{
+                        'bg-green-200':$index<=4,
+                        'bg-red-200':$index>4
+                    }"
+                    >
+                    @if ($index>0) {
+                        @for (data of team ; track $index) {
+                            <td class="py-2 px-4 border-b">{{data}}</td>
+                        }
+
+                    }
+                 
+                </tr>
+            }
+
+</tbody>
+
+</table>
+  
+
+</div> 
